@@ -1,0 +1,17 @@
+workflows:
+  default-workflow:
+    name: TikTok App Build
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+    scripts:
+      - name: Get flutter packages
+        script: |
+          cd tiktok_app
+          flutter packages get
+      - name: Build APK
+        script: |
+          cd tiktok_app
+          flutter build apk --release
+    artifacts:
+      - tiktok_app/build/app/outputs/flutter-apk/*.apk
