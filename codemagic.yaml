@@ -6,12 +6,12 @@ workflows:
       flutter: stable
     scripts:
       - name: Get flutter packages
+        working_directory: tiktok_app
         script: |
-          cd tiktok_app
           flutter packages get
       - name: Build APK
+        working_directory: tiktok_app
         script: |
-          cd tiktok_app
           flutter build apk --release
     artifacts:
       - tiktok_app/build/app/outputs/flutter-apk/*.apk
